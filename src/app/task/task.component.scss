@@ -1,0 +1,19 @@
+.card {
+  background-color: #fff;
+  padding: 8px;
+  margin-top: 15px;
+  cursor: grab;
+
+  &:hover {
+    background-color: #ddd;
+  }
+}
+
+.card--header {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.card--assignee {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

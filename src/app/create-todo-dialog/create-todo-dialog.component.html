@@ -1,0 +1,54 @@
+<div>
+  <div class="form-header">Add New Task</div>
+  <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea
+        ngModel
+        #descriptionField="ngModel"
+        name="description"
+        id="description"
+        required
+      ></textarea>
+      <div *ngIf="showValidationErrors && descriptionField.errors">
+        <div class="error-message" *ngIf="descriptionField.errors.required">
+          Please enter the description
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="author_name">Author Name</label>
+      <input
+        ngModel
+        #authorNameField="ngModel"
+        name="author_name"
+        id="author_name"
+        required
+      />
+      <div *ngIf="showValidationErrors && authorNameField.errors">
+        <div class="error-message" *ngIf="authorNameField.errors.required">
+          Please enter the author name
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="author_email">Author Email</label>
+      <input
+        type="email"
+        ngModel
+        #authorEmailField="ngModel"
+        name="author_email"
+        id="author_email"
+        required
+      />
+      <div *ngIf="showValidationErrors && authorEmailField.errors">
+        <div class="error-message" *ngIf="authorEmailField.errors.required">
+          Please enter the author email
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>

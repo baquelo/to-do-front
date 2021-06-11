@@ -1,0 +1,16 @@
+<div
+  class="card"
+>
+  <header class="card--header">
+    <div>To Do</div>
+    <button class="card--header--button"
+      (click)="addTask()"
+      (addedTask)="onAddedTask($event)"
+    >
+      <span class="material-icons">add</span>Add
+    </button>
+  </header>
+  <div class="card--content">
+    <task *ngFor="let task of tasks" [task]="task" cdkDrag></task>
+  </div>
+</div>
