@@ -1,8 +1,14 @@
+body {
+  margin: 0 !important;
+  padding: 0;
+}
+
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f2f2f2;
+  height: 100vh;
 }
 
 .page--logo {
@@ -35,4 +41,14 @@
 
 .page--content-list.cdk-drop-list-dragging .page--content:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.8em;
+}
+
+.field {
+    padding: 5px 0;
 }

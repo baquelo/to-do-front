@@ -4,7 +4,8 @@
   <header class="card--header">
     <div>To Do</div>
     <button class="card--header--button"
-      (click)="addTask()"
+      routerLink="/add-task"
+      routerLinkActive="active"
       (addedTask)="onAddedTask($event)"
     >
       <span class="material-icons">add</span>Add

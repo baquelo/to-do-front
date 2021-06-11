@@ -1,24 +1,24 @@
 <div class="page" role="main">
   <!-- Logo -->
   <section class="page--logo">
-    <img src="/assets/logo.png"/>
+    <img src="/assets/logo.png" />
   </section>
 
   <!-- Content -->
   <section class="page--content" cdkDropListGroup>
     <todo-list
-    cdkDropList
-    #todoList="cdkDropList"
-    [cdkDropListData]="tasksTodo"
-    (cdkDropListDropped)="drop($event)"
-    [tasks]=tasksTodo
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="tasksTodo"
+      (cdkDropListDropped)="drop($event)"
+      [tasks]="tasksTodo"
     ></todo-list>
     <done-list
-    cdkDropList
-    #doneList="cdkDropList"
-    [cdkDropListData]="tasksDone"
-    (cdkDropListDropped)="drop($event)"
-    [tasks]="tasksDone"
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="tasksDone"
+      (cdkDropListDropped)="drop($event)"
+      [tasks]="tasksDone"
     ></done-list>
   </section>
 </div>

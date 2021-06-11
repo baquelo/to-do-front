@@ -1,6 +1,6 @@
 export class Task {
     constructor (
-        public id: string | null,
+        public id: number | null,
         public description: string,
         public authorName: string,
         public authorEmail: string,

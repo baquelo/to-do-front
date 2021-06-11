@@ -6,29 +6,40 @@ import { Task } from '../shared/task.model';
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
+  tasksTodo: Task[] = [];
+  tasksDone: Task[] = [];
 
-  tasksTodo: Task[] = []
-  tasksDone: Task[] = []
-
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.tasksTodo = this.dataService.getPendingTasks()
-    this.tasksDone = this.dataService.getCompletedTasks()
+    this.loadTasks();
+  }
+
+  loadTasks() {
+    this.dataService.getAllTasks().subscribe((res) => {
+      this.tasksTodo = res.filter(task => !task.completed);
+      this.tasksDone = res.filter((task) => task.completed);
+    });
   }
 
   drop(event: CdkDragDrop<Task[]>) {
-    console.log(event)
+    console.log(event);
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
     }
   }
 }

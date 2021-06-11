@@ -1,5 +1,12 @@
-<div>
-  <div class="form-header">Add New Task</div>
+<div class="page" role="main">
+  <!-- Logo -->
+  <section class="page--logo">
+    <img src="/assets/logo.png" />
+  </section>
+
+  <!-- Content -->
+  <section class="page--content" cdkDropListGroup>
+    <div class="form-header">Add New Task</div>
   <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
     <div class="field">
       <label for="description">Description</label>
@@ -51,4 +58,5 @@
       <button type="submit">Add</button>
     </div>
   </form>
+  </section>
 </div>

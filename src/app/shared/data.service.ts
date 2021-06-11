@@ -3,47 +3,50 @@ import { Task } from './task.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-
-  baseUrl: string = 'http://localhost:8080/api';
+  baseUrl: string = 'https://mockend.com/baquelo/todo-mock/tasks';
 
   tasks: Task[] = [
-    new Task (
-      '1a32-2121-2-12-12-1-21',
+    new Task(
+      1,
       '[Temas] Criar novo tema para site.',
       'Marcelo',
       'contato@marceloalmeida.dev'
     ),
-    new Task (
-      '1a32-2121-2-12-12-1-22',
+    new Task(
+      2,
       '[Temas] Criar login.',
       'Marcelo',
       'contato@marceloalmeida.dev',
       true,
       0
     ),
-    new Task (
-      '1a32-2121-2-12-12-1-23',
+    new Task(
+      3,
       '[Temas] Terminar teste da Saipos.',
       'Marcelo',
-      'contato@marceloalmeida.dev',
-    )
-  ]
+      'contato@marceloalmeida.dev'
+    ),
+  ];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getCompletedTasks() {
-    return this.tasks.filter(task => task.completed);
+  getAllTasks() {
+    return this.http.get<Task[]>(`${this.baseUrl}`)
   }
 
-  getPendingTasks() {
-    return this.tasks.filter(task => !task.completed); 
-  }
+  // getCompletedTasks() {
+  //   return this.tasks.filter((task) => task.completed);
+  // }
+
+  // getPendingTasks() {
+  //   return this.tasks.filter((task) => !task.completed);
+  // }
 
   addTask(task: Task) {
-    this.tasks.push(task)
+    this.tasks.push(task);
   }
 
   openTask(task: Task) {

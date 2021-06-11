@@ -1,29 +1,23 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../shared/data.service';
 import { Task } from '../shared/task.model';
 
 @Component({
-  selector: 'app-create-todo-dialog',
-  templateUrl: './create-todo-dialog.component.html',
-  styleUrls: ['./create-todo-dialog.component.scss'],
+  selector: 'app-add-task',
+  templateUrl: './add-task.component.html',
+  styleUrls: ['./add-task.component.scss'],
 })
-export class CreateTodoDialogComponent implements OnInit {
+export class AddTaskComponent implements OnInit {
   showValidationErrors: boolean = false;
 
   constructor(
-    public dialogRef: MatDialogRef<CreateTodoDialogComponent>,
     private dataService: DataService
   ) {}
 
   ngOnInit(): void {}
 
   @Output() addedTask = new EventEmitter();
-
-  cancel(): void {
-    this.dialogRef.close();
-  }
 
   onFormSubmit(form: NgForm): void {
     if (form.invalid) {
