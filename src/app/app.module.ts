@@ -8,10 +8,10 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { DoneListComponent } from './done-list/done-list.component';
 import { TaskComponent } from './task/task.component';
 import { TodoComponent } from './todo/todo.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CreateTodoDialogComponent } from './create-todo-dialog/create-todo-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './shared/data.service';
@@ -23,7 +23,7 @@ import { DataService } from './shared/data.service';
     DoneListComponent,
     TaskComponent,
     TodoComponent,
-    CreateTodoDialogComponent,
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,7 @@ import { DataService } from './shared/data.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [ DataService ],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
